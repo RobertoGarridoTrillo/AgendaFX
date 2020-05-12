@@ -73,6 +73,5 @@ public class DateUtil
     return DateUtil.parse(dateString) != null;
   }
 
-
 }
 
