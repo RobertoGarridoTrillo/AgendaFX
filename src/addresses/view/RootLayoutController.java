@@ -65,7 +65,6 @@ public class RootLayoutController
     }
   }
 
-
   /**
    * Saves the file to the person file that is currently open. If there is no
    * open file, the "save as" dialog is shown.
@@ -83,8 +82,7 @@ public class RootLayoutController
     }
   }
 
-
-  /**
+/**
    * Opens a FileChooser to let the user select a file to save to.
    */
   @FXML

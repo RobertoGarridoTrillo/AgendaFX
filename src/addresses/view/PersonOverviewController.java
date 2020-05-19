@@ -14,8 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 
-public class PersonOverviewController
-{
+public class PersonOverviewController {
 
   @FXML
   private TableView<Person> personTable;
@@ -43,8 +42,7 @@ public class PersonOverviewController
   /**
    * The constructor. The constructor is called before the initialize() method.
    */
-  public PersonOverviewController()
-  {
+  public PersonOverviewController() {
   }
 
 
@@ -54,10 +52,8 @@ public class PersonOverviewController
    *
    * @param person the person or null
    */
-  private void showPersonDetails(Person person)
-  {
-    if (person != null)
-    {
+  private void showPersonDetails(Person person) {
+    if (person != null) {
       // Fill the labels with info from the person object.
       firstNameLabel.setText(person.getFirstName());
       lastNameLabel.setText(person.getLastName());
@@ -66,8 +62,7 @@ public class PersonOverviewController
       postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
       birthdayLabel.setText(DateUtil.format(person.getBirthday()));
 
-    } else
-    {
+    } else {
       // Person is null, remove all the text.
       firstNameLabel.setText("");
       lastNameLabel.setText("");
@@ -83,14 +78,11 @@ public class PersonOverviewController
    * Called when the user clicks on the delete button.
    */
   @FXML
-  private void handleDeletePerson()
-  {
+  private void handleDeletePerson() {
     int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-    if (selectedIndex >= 0)
-    {
+    if (selectedIndex >= 0) {
       personTable.getItems().remove(selectedIndex);
-    } else
-    {
+    } else {
       // Nothing selected.
       Alert alert = new Alert(AlertType.WARNING);
       alert.setTitle("No Selection");
@@ -106,8 +98,7 @@ public class PersonOverviewController
    * the fxml file has been loaded.
    */
   @FXML
-  private void initialize()
-  {
+  private void initialize() {
     // Initialize the person table with the two columns.
     firstNameColumn.setCellValueFactory(cellData -> cellData.getValue()
             .firstNameProperty());
@@ -128,13 +119,13 @@ public class PersonOverviewController
    *
    * @param mainApp
    */
-  public void setMainApp(MainApp mainApp)
-  {
+  public void setMainApp(MainApp mainApp) {
     this.mainApp = mainApp;
 
     // Add observable list data to the table
     personTable.setItems(mainApp.getPersonData());
   }
+
 
 }
 
